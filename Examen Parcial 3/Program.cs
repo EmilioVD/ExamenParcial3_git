@@ -12,6 +12,17 @@ namespace Examen_Parcial_3
         {
             Console.WriteLine("Inicio");
 
+
+
+
+
+
+
+
+
+
+
+
         }
     }
 }
