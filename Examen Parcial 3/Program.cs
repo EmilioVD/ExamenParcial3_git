@@ -10,7 +10,7 @@ namespace Examen_Parcial_3
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine("Inicio");
 
         }
     }
