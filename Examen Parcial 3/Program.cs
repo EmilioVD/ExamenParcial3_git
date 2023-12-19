@@ -43,6 +43,11 @@ namespace Examen_Parcial_3
                     }
                 }
             }
+            
+
+
+
+
             static void MostrarMenuPrincipal()
             {
                 Console.WriteLine("Menú Principal:");
@@ -227,6 +232,105 @@ namespace Examen_Parcial_3
         }
 
         //Mascotas
+        static void AdministrarAdopciones()
+        {
+            while (true)
+            {
+                MostrarMenuAdministracionAdopciones();
+                int opcion = LeerEntero("Seleccione una opción: ");
+
+                switch (opcion)
+                {
+                    case 1:
+                        VerMascotasDisponiblesParaAdoptar();
+                        break;
+                    case 2:
+                        AdoptarMascota();
+                        break;
+                    case 3:
+                        return;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        break;
+                }
+            }
+        }
+
+        static void MostrarMenuAdministracionAdopciones()
+        {
+            Console.WriteLine("Menú de Administración de Adopciones:");
+            Console.WriteLine("1 - Ver mascotas disponibles para adoptar");
+            Console.WriteLine("2 - Adoptar mascota");
+            Console.WriteLine("3 - Regresar al menú anterior");
+        }
+
+        static void VerMascotasDisponiblesParaAdoptar()
+        {
+            var mascotasDisponibles = mascotas.Where(m => m.Dueño == null).ToList();
+
+            if (mascotasDisponibles.Count == 0)
+            {
+                Console.WriteLine("No hay mascotas disponibles para adoptar en este momento.");
+                return;
+            }
+
+            Console.WriteLine("Mascotas disponibles para adoptar:");
+            foreach (var mascota in mascotasDisponibles)
+            {
+                Console.WriteLine($"Id: {mascota.Id}, Nombre: {mascota.Nombre}, Especie: {mascota.GetType().Name}");
+            }
+        }
+
+        static void AdoptarMascota()
+        {
+            int idMascota = LeerEntero("Ingrese el Id de la mascota que desea adoptar: ");
+            Mascota mascota = mascotas.FirstOrDefault(m => m.Id == idMascota && m.Dueño == null);
+
+            if (mascota == null)
+            {
+                Console.WriteLine("La mascota no está disponible para adoptar. Verifique el Id y asegúrese de que la mascota no tenga dueño.");
+                return;
+            }
+
+            Console.WriteLine($"Ha adoptado a {mascota.Nombre} (Id: {mascota.Id}, Especie: {mascota.GetType().Name}).");
+
+            if (Confirmar("¿Desea asignarle un dueño a la mascota?"))
+            {
+                AsignarDueñoAMascota(mascota);
+            }
+        }
+
+        static void AdministrarBienestarAnimal()
+        {
+            while (true)
+            {
+                MostrarMenuBienestarAnimal();
+                int opcion = LeerEntero("Seleccione una opción: ");
+
+                switch (opcion)
+                {
+                    case 1:
+                        ServicioDeSpa();
+                        break;
+                    case 2:
+                        CorteDePelo();
+                        break;
+                    case 3:
+                        return;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        break;
+                }
+            }
+        }
+
+        static void MostrarMenuBienestarAnimal()
+        {
+            Console.WriteLine("Menú de Administración de Bienestar Animal:");
+            Console.WriteLine("1 - Servicio de Spa");
+            Console.WriteLine("2 - Corte de pelo");
+            Console.WriteLine("3 - Regresar al menú anterior");
+        }
         static void AdministrarMascotas()
         {
             while (true)
@@ -279,6 +383,24 @@ namespace Examen_Parcial_3
             }
 
             Console.WriteLine($"Datos de la mascota (Id: {mascota.Id}, Nombre: {mascota.Nombre}, Especie: {mascota.GetType().Name}, Dueño: {mascota.Dueño?.Nombre ?? "Sin dueño"})");
+        }
+
+        static void BuscarMascotasPorNombre()
+        {
+            string cadenaBusqueda = LeerCadena("Ingrese el nombre o parte del nombre a buscar: ");
+            var mascotasEncontradas = mascotas.Where(m => m.Nombre.Contains(cadenaBusqueda)).ToList();
+
+            if (mascotasEncontradas.Count == 0)
+            {
+                Console.WriteLine("No se encontraron mascotas con ese nombre.");
+                return;
+            }
+
+            Console.WriteLine("Mascotas encontradas:");
+            foreach (var mascota in mascotasEncontradas)
+            {
+                Console.WriteLine($"Id: {mascota.Id}, Nombre: {mascota.Nombre}, Especie: {mascota.GetType().Name}");
+            }
         }
 
         static void MostrarMenuAdministracionMascotas()
