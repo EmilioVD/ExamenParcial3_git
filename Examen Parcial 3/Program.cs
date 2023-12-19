@@ -284,7 +284,7 @@ namespace Examen_Parcial_3
         static void AdoptarMascota()
         {
             int idMascota = LeerEntero("Ingrese el Id de la mascota que desea adoptar: ");
-            Mascota mascota = mascotas.FirstOrDefault(m => m.Id == idMascota && m.Dueño == null);
+            Mascota mascota = mascotas.FirstOrDefault(m => m.Id == "idMascota" && m.Dueño == null);
 
             if (mascota == null)
             {
@@ -307,20 +307,20 @@ namespace Examen_Parcial_3
                 MostrarMenuBienestarAnimal();
                 int opcion = LeerEntero("Seleccione una opción: ");
 
-                //switch (opcion)
-                //{
-                //    case 1:
-                //        ServicioDeSpa();
-                //        break;
-                //    case 2:
-                //        CorteDePelo();
-                //        break;
-                //    case 3:
-                //        return;
-                //    default:
-                //        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
-                //        break;
-                //}
+                switch (opcion)
+                {
+                    case 1:
+                        //ServicioDeSpa();
+                        break;
+                    case 2:
+                        //CorteDePelo();
+                        break;
+                    case 3:
+                        return;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        break;
+                }
             }
         }
         static void SimularInteracciones()
@@ -371,7 +371,7 @@ namespace Examen_Parcial_3
                         MostrarMascotasRegistradas();
                         break;
                     case 2:
-                        RegistrarMascotaNueva();
+                        //RegistrarMascotaNueva();
                         break;
                     case 3:
                         BuscarMascotasPorEspecie();
@@ -393,7 +393,7 @@ namespace Examen_Parcial_3
         static void ExaminarMascota()
         {
             int idMascota = LeerEntero("Ingrese el Id de la mascota que desea examinar: ");
-            Mascota mascota = mascotas.FirstOrDefault(m => m.Id == idMascota);
+            Mascota mascota = mascotas.FirstOrDefault(m => m.Id == "idMascota");
 
             if (mascota == null)
             {
@@ -449,33 +449,33 @@ namespace Examen_Parcial_3
                 Console.WriteLine($"Id: {mascota.Id}, Nombre: {mascota.Nombre}, Especie: {mascota.GetType().Name}");
             }
         }
-        static void RegistrarMascotaNueva()
-        {
-            string especie = LeerCadena("Ingrese la especie de la mascota (Perro, Gato, Capibara): ");
-            Mascota nuevaMascota = CrearMascotaPorEspecie(especie);
-            mascotas.Add(nuevaMascota);
-            Console.WriteLine($"Se ha registrado a {nuevaMascota.Nombre} con Id {nuevaMascota.Id}.");
+        //static void RegistrarMascotaNueva()
+        //{
+        //    string especie = LeerCadena("Ingrese la especie de la mascota (Perro, Gato, Capibara): ");
+        //    Mascota nuevaMascota = CrearMascotaPorEspecie(especie);
+        //    mascotas.Add(nuevaMascota);
+        //    Console.WriteLine($"Se ha registrado a {nuevaMascota.Nombre} con Id {nuevaMascota.Id}.");
 
-            if (Confirmar("¿Desea asignarle un dueño a la mascota?"))
-            {
-                AsignarDueñoAMascota(nuevaMascota);
-            }
-        }
-        static Mascota CrearMascotaPorEspecie(string especie)
-        {
-            switch (especie.ToLower())
-            {
-                case "perro":
-                    return new Mascota.Perro();
-                case "gato":
-                    return new MGato();
-                case "capibara":
-                    return new Mascota.Capibara();
-                default:
-                    Console.WriteLine("Especie no válida. Se creará una mascota genérica.");
-                    return new Mascotas.Mascota();
-            }
-        }
+        //    if (Confirmar("¿Desea asignarle un dueño a la mascota?"))
+        //    {
+        //        AsignarDueñoAMascota(nuevaMascota);
+        //    }
+        //}
+        //static Mascota CrearMascotaPorEspecie(string especie)
+        //{
+        //    switch (especie.ToLower())
+        //    {
+        //        case "perro":
+        //            return new Mascota.Perro();
+        //        case "gato":
+        //            return new Mascota.Gato();
+        //        case "capibara":
+        //            return new Mascota.Capibara();
+        //        default:
+        //            Console.WriteLine("Especie no válida. Se creará una mascota genérica.");
+        //            return new Mascota.Mascota();
+        //    }
+        //}
 
         static void AsignarDueñoAMascota(Mascota mascota)
         {
@@ -518,7 +518,125 @@ namespace Examen_Parcial_3
             }
         }
 
+        //static void ServicioDeSpa()
+        //{
+        //    int idPersona = LeerEntero("Ingrese el Id de la persona que acude al centro: ");
+        //    Class_Persona persona = ObtenerPersonaPorId(idPersona);
 
+        //    if (persona == null)
+        //    {
+        //        Console.WriteLine("No se encontró ninguna persona con ese Id.");
+        //        if (Confirmar("¿Desea buscar por nombre?"))
+        //        {
+        //            persona = BuscarPersonasPorNombre();
+        //        }
+        //    }
+
+        //    if (persona == null)
+        //    {
+        //        return;
+        //    }
+
+        //    Console.WriteLine($"Mascotas de {persona.Nombre}:");
+        //    MostrarMascotasDePersona(persona);
+
+        //    int idMascota = LeerEntero("Ingrese el Id de la mascota para el servicio de Spa: ");
+        //    Mascota mascota = persona.ObtenerMascotaPorId("idMascota");
+
+        //    if (mascota == null)
+        //    {
+        //        Console.WriteLine("La mascota no pertenece a esta persona o el Id no es válido.");
+        //        return;
+        //    }
+
+        //    if (mascota is Gato || mascota is Capibara)
+        //    {
+        //        Console.WriteLine("Este servicio no está disponible para gatos ni capibaras.");
+        //        if (Confirmar("¿Desea seleccionar otra mascota?"))
+        //        {
+        //            ServicioDeSpa();
+        //        }
+        //        return;
+        //    }
+
+        //    Console.WriteLine($"{mascota.Nombre} disfruta de un día en el Spa. {mascota.HacerRuido()}");
+        //}
+        //static void MostrarMascotasDePersona(Persona persona)
+        //{
+        //    if (persona == null)
+        //    {
+        //        Console.WriteLine("La persona no está registrada.");
+        //        return;
+        //    }
+
+        //    var mascotas = persona.ObtenerMascotas();
+
+        //    if (mascotas.Count == 0)
+        //    {
+        //        Console.WriteLine($"{persona.Nombre} no tiene ninguna mascota registrada.");
+        //        return;
+        //    }
+
+        //    Console.WriteLine($"Mascotas de {persona.Nombre}:");
+        //    foreach (var mascota in mascotas)
+        //    {
+        //        Console.WriteLine($"Id: {mascota.Id}, Nombre: {mascota.Nombre}, Especie: {mascota.GetType().Name}");
+        //    }
+        //}
+        //static void CorteDePelo()
+        //{
+        //    int idPersona = LeerEntero("Ingrese el Id de la persona que acude al centro: ");
+        //    Class_Persona persona = ObtenerPersonaPorId(idPersona);
+
+        //    if (persona == null)
+        //    {
+        //        Console.WriteLine("No se encontró ninguna persona con ese Id.");
+        //        if (Confirmar("¿Desea buscar por nombre?"))
+        //        {
+        //            persona = BuscarPersonasPorNombre();
+        //        }
+        //    }
+
+        //    if (persona == null)
+        //    {
+        //        return;
+        //    }
+
+        //    Console.WriteLine($"Mascotas de {persona.Nombre}:");
+        //    MostrarMascotasDePersona(persona);
+
+        //    int idMascota = LeerEntero("Ingrese el Id de la mascota para el corte de pelo: ");
+        //    Mascota mascota = persona.ObtenerMascotaPorId(idMascota);
+
+        //    if (mascota == null)
+        //    {
+        //        Console.WriteLine("La mascota no pertenece a esta persona o el Id no es válido.");
+        //        return;
+        //    }
+
+        //    if (mascota is Gato || mascota is Capibara)
+        //    {
+        //        Console.WriteLine("Este servicio no está disponible para gatos ni capibaras.");
+        //        if (Confirmar("¿Desea seleccionar otra mascota?"))
+        //        {
+        //            CorteDePelo();
+        //        }
+        //        return;
+        //    }
+
+        //    if (mascota.Temperamento == Temperamento.Amable)
+        //    {
+        //        Console.WriteLine($"{mascota.Nombre} recibe un corte de pelo, como el buen chico que es.");
+        //    }
+        //    else if (mascota.Temperamento == Temperamento.Nervioso)
+        //    {
+        //        Console.WriteLine($"{mascota.Nombre} recibe un corte de pelo.");
+        //    }
+        //    else if (mascota.Temperamento == Temperamento.Agresivo)
+        //    {
+        //        Console.WriteLine($"{mascota.Nombre} gruñe y luego recibe un corte de pelo, aunque no parece haberlo disfrutado mucho.");
+        //    }
+        //}
 
 
     }

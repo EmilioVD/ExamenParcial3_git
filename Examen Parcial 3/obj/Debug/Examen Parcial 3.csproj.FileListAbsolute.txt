@@ -1,0 +1,7 @@
+C:\Users\003na\OneDrive\Documentos\Fundamentos de Software\ExamenParcial3_git\Examen Parcial 3\obj\Debug\Examen Parcial 3.csproj.AssemblyReference.cache
+C:\Users\003na\OneDrive\Documentos\Fundamentos de Software\ExamenParcial3_git\Examen Parcial 3\obj\Debug\Examen Parcial 3.csproj.CoreCompileInputs.cache
+C:\Users\003na\OneDrive\Documentos\Fundamentos de Software\ExamenParcial3_git\Examen Parcial 3\bin\Debug\Examen Parcial 3.exe.config
+C:\Users\003na\OneDrive\Documentos\Fundamentos de Software\ExamenParcial3_git\Examen Parcial 3\bin\Debug\Examen Parcial 3.exe
+C:\Users\003na\OneDrive\Documentos\Fundamentos de Software\ExamenParcial3_git\Examen Parcial 3\bin\Debug\Examen Parcial 3.pdb
+C:\Users\003na\OneDrive\Documentos\Fundamentos de Software\ExamenParcial3_git\Examen Parcial 3\obj\Debug\Examen Parcial 3.exe
+C:\Users\003na\OneDrive\Documentos\Fundamentos de Software\ExamenParcial3_git\Examen Parcial 3\obj\Debug\Examen Parcial 3.pdb

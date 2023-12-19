@@ -38,7 +38,7 @@ namespace Examen_Parcial_3.Mascotas
         }
     }
 
-    public class Perro : Mascota, IAcariciable
+    public class Perro : Mascota/*, IAcariciable*/
     {
         public Perro(string nombre, Temperamento temperamento) : base(nombre, Especie.Perro, temperamento) { }
 
@@ -68,7 +68,7 @@ namespace Examen_Parcial_3.Mascotas
         }
     }
 
-    public class Gato : Mascota, IAcariciable
+    public class Gato : Mascota/*, IAcariciable*/
     {
         public Gato(string nombre, Temperamento temperamento) : base(nombre, Especie.Gato, temperamento) { }
 
