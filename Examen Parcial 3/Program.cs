@@ -245,8 +245,34 @@ namespace Examen_Parcial_3
                 Console.WriteLine($"Id: {mascota.Id}, Nombre: {mascota.Nombre}, Especie: {mascota.GetType().Name}");
             }
         }
+        static void RegistrarMascotaNueva()
+        {
+            string especie = LeerCadena("Ingrese la especie de la mascota (Perro, Gato, Capibara): ");
+            Mascota nuevaMascota = CrearMascotaPorEspecie(especie);
+            mascotas.Add(nuevaMascota);
+            Console.WriteLine($"Se ha registrado a {nuevaMascota.Nombre} con Id {nuevaMascota.Id}.");
 
+            if (Confirmar("¿Desea asignarle un dueño a la mascota?"))
+            {
+                AsignarDueñoAMascota(nuevaMascota);
+            }
+        }
+        static Mascota CrearMascotaPorEspecie(string especie)
+        {
+            switch (especie.ToLower())
+            {
+                case "perro":
+                    return new Perro();
+                case "gato":
+                    return new Mascota.Gato();
+                case "capibara":
+                    return new Capibara();
+                default:
+                    Console.WriteLine("Especie no válida. Se creará una mascota genérica.");
+                    return new Mascota();
+            }
+        }
 
-    }
     }
 }
+
