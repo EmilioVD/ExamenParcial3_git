@@ -10,8 +10,8 @@ namespace Examen_Parcial_3
 {
     class Program
     {
-            List<Class_Persona> personas = new List<Class_Persona>();
-            List<Mascota> mascotas = new List<Mascota>();
+            static List<Class_Persona> personas = new List<Class_Persona>();
+            static List<Mascota> mascotas = new List<Mascota>();
 
             static void Main()
             {
@@ -180,6 +180,19 @@ namespace Examen_Parcial_3
             }
         }
 
+        static string LeerCadena(string mensaje)
+        {
+            Console.Write(mensaje);
+            return Console.ReadLine();
+        }
+
+        static bool Confirmar(string mensaje)
+        {
+            Console.Write($"{mensaje} (Sí/No): ");
+            string respuesta = Console.ReadLine().Trim().ToLower();
+            return respuesta == "s" || respuesta == "si";
+        }
+
         //Mascotas
         static void AdministrarMascotas()
         {
@@ -224,7 +237,14 @@ namespace Examen_Parcial_3
             Console.WriteLine("6 - Volver al menú anterior");
         }
 
-
+        static void MostrarMascotasRegistradas()
+        {
+            Console.WriteLine("Mascotas Registradas:");
+            foreach (var mascota in mascotas)
+            {
+                Console.WriteLine($"Id: {mascota.Id}, Nombre: {mascota.Nombre}, Especie: {mascota.GetType().Name}");
+            }
+        }
 
 
     }
