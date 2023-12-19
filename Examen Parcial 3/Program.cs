@@ -1,4 +1,5 @@
 ﻿using Examen_Parcial_3.Mascotas;
+using Examen_Parcial_3.Persona;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,8 @@ namespace Examen_Parcial_3
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Inicio");
-
-            static List<Persona> personas = new List<Persona>();
-            static List<Mascota> mascotas = new List<Mascota>();
+            List<Class_Persona> personas = new List<Class_Persona>();
+            List<Mascota> mascotas = new List<Mascota>();
 
             static void Main()
             {
@@ -46,7 +43,15 @@ namespace Examen_Parcial_3
                     }
                 }
             }
-
+            static void MostrarMenuPrincipal()
+            {
+                Console.WriteLine("Menú Principal:");
+                Console.WriteLine("1 - Administración del centro");
+                Console.WriteLine("2 - Administración de adopciones");
+                Console.WriteLine("3 - Administración de bienestar animal");
+                Console.WriteLine("4 - Simulación de interacciones");
+                Console.WriteLine("5 - Finalizar programa");
+            }
 
 
 
