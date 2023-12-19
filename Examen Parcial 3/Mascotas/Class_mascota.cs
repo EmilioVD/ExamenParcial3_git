@@ -68,6 +68,43 @@ namespace Examen_Parcial_3.Mascotas
         }
     }
 
+    public class Gato : Mascota, IAcariciable, IBailarin
+    {
+        public Gato(string nombre, Temperamento temperamento) : base(nombre, Especie.Gato, temperamento) { }
+
+        public override void HacerRuido()
+        {
+            Console.WriteLine("Miau Miau");
+        }
+
+        public void Ronronear()
+        {
+            Console.WriteLine($"{Nombre} ronronea epicamente");
+        }
+
+        public void Rasguñar()
+        {
+            Console.WriteLine($"{Nombre} rasguña epicamente");
+        }
+
+        public void ResponderACaricia()
+        {
+            if (Temperamento == Temperamento.Amable || Temperamento == Temperamento.Nervioso)
+            {
+                Ronronear();
+            }
+            else if (Temperamento == Temperamento.Agresivo)
+            {
+                Rasguñar();
+            }
+        }
+
+        public void Bailar()
+        {
+            Console.WriteLine($"{Nombre} no me gusta bailar");
+        }
+    }
+
     public class Capibara : Mascota
     {
         public Capibara(string nombre) : base(nombre, Especie.Capibara, Temperamento.Amable) { }
