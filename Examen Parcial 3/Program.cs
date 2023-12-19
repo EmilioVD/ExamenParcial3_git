@@ -53,14 +53,37 @@ namespace Examen_Parcial_3
                 Console.WriteLine("5 - Finalizar programa");
             }
 
+        static void AdministrarCentro()
+        {
+            while (true)
+            {
+                MostrarMenuAdministracionCentro();
+                int opcion = LeerEntero("Seleccione una opción: ");
 
-
-
-
-
-
-
-
+                switch (opcion)
+                {
+                    case 1:
+                        AdministrarPersonas();
+                        break;
+                    case 2:
+                        AdministrarMascotas();
+                        break;
+                    case 3:
+                        return;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        break;
+                }
+            }
         }
+
+
+
+
+
+
+
+
+    }
     }
 }
