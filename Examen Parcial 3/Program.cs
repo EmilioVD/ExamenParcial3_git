@@ -295,14 +295,14 @@ namespace Examen_Parcial_3
             switch (especie.ToLower())
             {
                 case "perro":
-                    return new Perro();
+                    return new Mascota.Perro();
                 case "gato":
                     return new Mascota.Gato();
                 case "capibara":
-                    return new Capibara();
+                    return new Mascota.Capibara();
                 default:
                     Console.WriteLine("Especie no válida. Se creará una mascota genérica.");
-                    return new Mascota();
+                    return new Mascotas.Mascota();
             }
         }
 
