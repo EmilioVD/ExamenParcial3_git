@@ -157,11 +157,44 @@ namespace Examen_Parcial_3
             Console.WriteLine("Personas encontradas en el sistema:");
             foreach (var persona in personasEncontradas)
             {
-                Console.WriteLine($"Id: {persona.Id}, Nombre: {persona.Nombre}");
+                Console.WriteLine($"ID: {persona.Id}, NOMBRE: {persona.Nombre}");
             }
         }
 
+        static void ExaminarPersona()
+        {
+            int idPersona = LeerEntero("Porfavor INGRESAR el ID de la persona a examinar: ");
+            Persona persona = personas.FirstOrDefault(p => p.Id == idPersona);
 
+            if (persona == null)
+            {
+                Console.WriteLine("NO SE A ENCONTRADO A NINGUNA PERSONA EN EL SISTEMA CON ESE ID ");
+                if (Confirmar("¿Desearia buscar por el nombre?"))
+                {
+                    BuscarPersonasPorNombre();
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            Console.WriteLine($"ESTOS SON LOS DATOS DE LA PERSONA (ID: {persona.Id}, NOMBRE: {persona.Nombre}):");
+            var mascotas = persona.ObtenerMascotas();
+            if (mascotas.Count > 0)
+            {
+                Console.WriteLine("MASCOTAS REGISTRADAS:");
+                foreach (var mascota in mascotas)
+                {
+                    Console.WriteLine($"ID: {mascota.Id}, NOMBRE: {mascota.Nombre}, ESPECIE: {mascota.GetType().Name}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"El ususario {persona.Nombre} no tiene mascotas registradas");
+            }
+        }
 
 
         static int LeerEntero(string mensaje)
