@@ -10,8 +10,8 @@ namespace Examen_Parcial_3
 {
     class Program
     {
-            List<Class_Persona> personas = new List<Class_Persona>();
-            List<Mascota> mascotas = new List<Mascota>();
+            static List<Class_Persona> personas = new List<Class_Persona>();
+            static List<Mascota> mascotas = new List<Mascota>();
 
             static void Main()
             {
@@ -213,6 +213,19 @@ namespace Examen_Parcial_3
             }
         }
 
+        static string LeerCadena(string mensaje)
+        {
+            Console.Write(mensaje);
+            return Console.ReadLine();
+        }
+
+        static bool Confirmar(string mensaje)
+        {
+            Console.Write($"{mensaje} (Sí/No): ");
+            string respuesta = Console.ReadLine().Trim().ToLower();
+            return respuesta == "s" || respuesta == "si";
+        }
+
         //Mascotas
         static void AdministrarMascotas()
         {
@@ -257,9 +270,42 @@ namespace Examen_Parcial_3
             Console.WriteLine("6 - Volver al menú anterior");
         }
 
+        static void MostrarMascotasRegistradas()
+        {
+            Console.WriteLine("Mascotas Registradas:");
+            foreach (var mascota in mascotas)
+            {
+                Console.WriteLine($"Id: {mascota.Id}, Nombre: {mascota.Nombre}, Especie: {mascota.GetType().Name}");
+            }
+        }
+        static void RegistrarMascotaNueva()
+        {
+            string especie = LeerCadena("Ingrese la especie de la mascota (Perro, Gato, Capibara): ");
+            Mascota nuevaMascota = CrearMascotaPorEspecie(especie);
+            mascotas.Add(nuevaMascota);
+            Console.WriteLine($"Se ha registrado a {nuevaMascota.Nombre} con Id {nuevaMascota.Id}.");
 
+            if (Confirmar("¿Desea asignarle un dueño a la mascota?"))
+            {
+                AsignarDueñoAMascota(nuevaMascota);
+            }
+        }
+        static Mascota CrearMascotaPorEspecie(string especie)
+        {
+            switch (especie.ToLower())
+            {
+                case "perro":
+                    return new Perro();
+                case "gato":
+                    return new Mascota.Gato();
+                case "capibara":
+                    return new Capibara();
+                default:
+                    Console.WriteLine("Especie no válida. Se creará una mascota genérica.");
+                    return new Mascota();
+            }
+        }
 
-
-    }
     }
 }
+
