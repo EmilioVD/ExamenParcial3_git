@@ -164,7 +164,7 @@ namespace Examen_Parcial_3
         static void ExaminarPersona()
         {
             int idPersona = LeerEntero("Porfavor INGRESAR el ID de la persona a examinar: ");
-            Persona persona = personas.FirstOrDefault(p => p.Id == idPersona);
+            Class_Persona persona = personas.FirstOrDefault(p => p.Id == idPersona);
 
             if (persona == null)
             {
