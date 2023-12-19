@@ -9,7 +9,7 @@ namespace Examen_Parcial_3.Mascotas
     
     public interface IAcariciable
     {
-        void ResponderACaricia();
+        string ResponderACaricia();
     }
     public enum Especie
     {
