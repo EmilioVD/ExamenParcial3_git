@@ -259,6 +259,28 @@ namespace Examen_Parcial_3
                 }
             }
         }
+        static void ExaminarMascota()
+        {
+            int idMascota = LeerEntero("Ingrese el Id de la mascota que desea examinar: ");
+            Mascota mascota = mascotas.FirstOrDefault(m => m.Id == idMascota);
+
+            if (mascota == null)
+            {
+                Console.WriteLine("No se encontró ninguna mascota con ese Id.");
+                if (Confirmar("¿Desea buscar por nombre?"))
+                {
+                    BuscarMascotasPorNombre();
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            Console.WriteLine($"Datos de la mascota (Id: {mascota.Id}, Nombre: {mascota.Nombre}, Especie: {mascota.GetType().Name}, Dueño: {mascota.Dueño?.Nombre ?? "Sin dueño"})");
+        }
+
         static void MostrarMenuAdministracionMascotas()
         {
             Console.WriteLine("Menú de Administración de Mascotas:");
