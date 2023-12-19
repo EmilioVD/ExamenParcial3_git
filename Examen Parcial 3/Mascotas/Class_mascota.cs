@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 using Examen_Parcial_3.Mascotas;
 
 namespace Examen_Parcial_3.Mascotas
-{
-    class Interfaz_mascota
-    {
-        
-    }
-    
+{ 
     public abstract class Mascota
     {
         private static int contadorId = 1;
@@ -41,5 +36,36 @@ namespace Examen_Parcial_3.Mascotas
             Dueño = nuevoDueño;
         }
     }
-    
+
+    public class Perro : Mascota, IAcariciable, IBailarin
+    {
+        public Perro(string nombre, Temperamento temperamento) : base(nombre, Especie.Perro, temperamento) { }
+
+        public override void HacerRuido()
+        {
+            Console.WriteLine("Guau Guau");
+        }
+
+        public override void HacerRuido()
+        {
+            Console.WriteLine("Wauff Wuaff");
+        }
+
+        public void MoverCola()
+        {
+            Console.WriteLine($"{Nombre} mueve la cola ");
+        }
+
+        public void Gruñir()
+        {
+            Console.WriteLine($"{Nombre} gruñe epicamente");
+        }
+
+        public void ResponderAcaricia()
+        {
+            MoverCola();
+        }
+
+        public void 
+    }
 }

@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Mascotas\Class_mascota.cs" />
     <Compile Include="Mascotas\Interface_mascota.cs" />
+    <Compile Include="Persona\Class_Persona.cs" />
+    <Compile Include="Persona\Interface_Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
