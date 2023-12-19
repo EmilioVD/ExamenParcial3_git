@@ -307,19 +307,46 @@ namespace Examen_Parcial_3
                 MostrarMenuBienestarAnimal();
                 int opcion = LeerEntero("Seleccione una opción: ");
 
-                switch (opcion)
+                //switch (opcion)
+                //{
+                //    case 1:
+                //        ServicioDeSpa();
+                //        break;
+                //    case 2:
+                //        CorteDePelo();
+                //        break;
+                //    case 3:
+                //        return;
+                //    default:
+                //        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                //        break;
+                //}
+            }
+        }
+        static void SimularInteracciones()
+        {
+            int idPersona = LeerEntero("Ingrese el Id de la persona que realizará las interacciones: ");
+            var persona = ObtenerPersonaPorId(idPersona);
+
+            if (persona == null)
+            {
+                Console.WriteLine("La persona no está registrada. Por favor, verifique el Id.");
+                return;
+            }
+
+            Console.WriteLine($"Simulando interacciones para {persona.Nombre}:");
+
+            foreach (var mascota in persona.ObtenerMascotas())
+            {
+                Console.WriteLine($"Acariciando a {mascota.Nombre}:");
+                if (mascota is IAcariciable acariciable)
                 {
-                    case 1:
-                        ServicioDeSpa();
-                        break;
-                    case 2:
-                        CorteDePelo();
-                        break;
-                    case 3:
-                        return;
-                    default:
-                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
-                        break;
+                    string respuesta = acariciable.ResponderACaricia();
+                    Console.WriteLine($"{persona.Nombre} acaricia a {mascota.Nombre}: {respuesta}");
+                }
+                else
+                {
+                    Console.WriteLine($"{persona.Nombre} intenta acariciar a {mascota.Nombre}, pero no es posible.");
                 }
             }
         }

@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examen_Parcial_3.Mascotas
 {
-    interface IBailarin
-    {
-      void Bailar();
-    }
+    
     public interface IAcariciable
     {
         void ResponderACaricia();
