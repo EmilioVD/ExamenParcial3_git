@@ -11,7 +11,21 @@ namespace Examen_Parcial_3.Persona
     public class Class_Persona
     {
         public int Id { get; private set; }
-        public string Nombre { get; set; }
+        private string _nombre;
+        public string Nombre
+        {
+            get { return _nombre; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new Exception("El nombre no puede estar en blanco.");
+                }
+
+                _nombre = value;
+            }
+        }
+
         public List<Mascota> Mascotas { get; private set; }
 
         public Class_Persona(string nombre)
