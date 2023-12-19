@@ -144,7 +144,39 @@ namespace Examen_Parcial_3
             }
         }
 
+        //Mascotas
+        static void AdministrarMascotas()
+        {
+            while (true)
+            {
+                MostrarMenuAdministracionMascotas();
+                int opcion = LeerEntero("Seleccione una opción: ");
 
+                switch (opcion)
+                {
+                    case 1:
+                        MostrarMascotasRegistradas();
+                        break;
+                    case 2:
+                        RegistrarMascotaNueva();
+                        break;
+                    case 3:
+                        BuscarMascotasPorEspecie();
+                        break;
+                    case 4:
+                        BuscarMascotasPorNombre();
+                        break;
+                    case 5:
+                        ExaminarMascota();
+                        break;
+                    case 6:
+                        return;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        break;
+                }
+            }
+        }
 
 
 
