@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Examen_Parcial_3.Mascotas;
+using Examen_Parcial_3.Persona;
 
 namespace Examen_Parcial_3.Mascotas
 { 
@@ -15,7 +16,7 @@ namespace Examen_Parcial_3.Mascotas
         public string Nombre { get; private set; }
         public int Edad { get; set; }
         public Temperamento Temperamento { get; private set; }
-        public Persona Dueño { get; private set; }
+        public Class_Persona Dueño { get; private set; }
 
         protected Mascota(string nombre, Especie especie, Temperamento temperamento)
         {
@@ -26,7 +27,7 @@ namespace Examen_Parcial_3.Mascotas
 
         public abstract void HacerRuido();
 
-        public void CambiarDueño(Persona nuevoDueño)
+        public void CambiarDueño(Class_Persona nuevoDueño)
         {
             if (Dueño != null)
             {
@@ -46,11 +47,6 @@ namespace Examen_Parcial_3.Mascotas
             Console.WriteLine("Guau Guau");
         }
 
-        public override void HacerRuido()
-        {
-            Console.WriteLine("Wauff Wuaff");
-        }
-
         public void MoverCola()
         {
             Console.WriteLine($"{Nombre} mueve la cola ");
@@ -61,11 +57,24 @@ namespace Examen_Parcial_3.Mascotas
             Console.WriteLine($"{Nombre} gruñe epicamente");
         }
 
-        public void ResponderAcaricia()
+        public void ResponderACaricia()
         {
             MoverCola();
         }
 
-        public void 
+        public void Bailar()
+        {
+            Console.WriteLine($"{Nombre} no me gusta bailar");
+        }
+    }
+
+    public class Capibara : Mascota
+    {
+        public Capibara(string nombre) : base(nombre, Especie.Capibara, Temperamento.Amable) { }
+
+        public override void HacerRuido()
+        {
+            Console.WriteLine("Cui Cui");
+        }
     }
 }
