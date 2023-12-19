@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace Examen_Parcial_3.Mascotas
 {
-    interface Interface_mascota
+    interface IBailarin
     {
+      void Bailar();
+    }
+    public interface IAcariciable
+    {
+        void ResponderACaricia();
+    }
+    public enum Especie
+    {
+        Perro,
+        Gato,
+        Capibara,
+        Pajaro
+    }
+
+    public enum Temperamento
+    {
+        Amable,
+        Nervioso,
+        Agresivo,
+        Alegre
     }
 }
