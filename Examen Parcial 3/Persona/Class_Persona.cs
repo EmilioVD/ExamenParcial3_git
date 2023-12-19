@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Examen_Parcial_3.Mascotas;
 
 namespace Examen_Parcial_3.Persona
 {
-    public class Class_Persona
+    public abstract class Persona
     {
         public int Id { get; private set; }
         private string _nombre;
@@ -28,7 +27,7 @@ namespace Examen_Parcial_3.Persona
 
         public List<Mascota> Mascotas { get; private set; }
 
-        public Class_Persona(string nombre)
+        public Persona(string nombre)
         {
             Id = GenerarIdUnico();
             Nombre = nombre;
@@ -39,7 +38,7 @@ namespace Examen_Parcial_3.Persona
         {
             Mascotas.Add(mascota);
             Console.WriteLine($"{Nombre} agrega a {mascota.Nombre} a sus mascotas.");
-            mascota.CambiarDueño(this);
+            mascota.HacerRuido();
         }
 
         public Mascota ObtenerMascotaPorId(string id)
