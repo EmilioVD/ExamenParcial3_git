@@ -76,7 +76,21 @@ namespace Examen_Parcial_3
                 }
             }
         }
-
+        static int LeerEntero(string mensaje)
+        {
+            Console.Write(mensaje);
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int result))
+                {
+                    return result;
+                }
+                else
+                {
+                    Console.Write("Por favor, ingrese un número válido: ");
+                }
+            }
+        }
 
 
 
