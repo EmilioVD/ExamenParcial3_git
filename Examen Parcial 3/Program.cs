@@ -126,6 +126,42 @@ namespace Examen_Parcial_3
             Console.WriteLine("5 - Regresar al menú anterior");
         }
 
+        static void MostrarPersonasRegistradas()
+        {
+            Console.WriteLine("Personas Registradas:");
+            foreach (var persona in personas)
+            {
+                Console.WriteLine($"Id: {persona.Id}, Nombre: {persona.Nombre}");
+            }
+        }
+
+        static void RegistrarPersonaNueva()
+        {
+            string nombre = LeerCadena("Porfavor escriba el nombre de la persona: ");
+            Persona nuevaPersona = new Persona(nombre);
+            personas.Add(nuevaPersona);
+            Console.WriteLine($"Se registro a :{nuevaPersona.Nombre} con el ID:{nuevaPersona.Id}.");
+        }
+
+        static void BuscarPersonasPorNombre()
+        {
+            string cadenaBusqueda = LeerCadena("Ingrese el nombre o parte del nombre a buscar: ");
+            var personasEncontradas = personas.Where(p => p.Nombre.Contains(cadenaBusqueda)).ToList();
+
+            if (personasEncontradas.Count == 0)
+            {
+                Console.WriteLine("No se pueddo encontrar ninguna persona con el nombre porporcionado ");
+                return;
+            }
+
+            Console.WriteLine("Personas encontradas en el sistema:");
+            foreach (var persona in personasEncontradas)
+            {
+                Console.WriteLine($"Id: {persona.Id}, Nombre: {persona.Nombre}");
+            }
+        }
+
+
 
 
         static int LeerEntero(string mensaje)
