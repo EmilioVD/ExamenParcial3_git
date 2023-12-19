@@ -213,7 +213,16 @@ namespace Examen_Parcial_3
                 }
             }
         }
-
+        static void MostrarMenuAdministracionMascotas()
+        {
+            Console.WriteLine("Menú de Administración de Mascotas:");
+            Console.WriteLine("1 - Mostrar todas las mascotas registradas");
+            Console.WriteLine("2 - Registrar mascota nueva");
+            Console.WriteLine("3 - Buscar mascotas por especie");
+            Console.WriteLine("4 - Buscar mascotas por nombre");
+            Console.WriteLine("5 - Examinar mascota");
+            Console.WriteLine("6 - Volver al menú anterior");
+        }
 
 
 
