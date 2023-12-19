@@ -138,7 +138,7 @@ namespace Examen_Parcial_3
         static void RegistrarPersonaNueva()
         {
             string nombre = LeerCadena("Porfavor escriba el nombre de la persona: ");
-            Persona nuevaPersona = new Persona(nombre);
+            Class_Persona nuevaPersona = new Class_Persona(nombre);
             personas.Add(nuevaPersona);
             Console.WriteLine($"Se registro a :{nuevaPersona.Nombre} con el ID:{nuevaPersona.Id}.");
         }
@@ -297,7 +297,7 @@ namespace Examen_Parcial_3
                 case "perro":
                     return new Mascota.Perro();
                 case "gato":
-                    return new Mascota.Gato();
+                    return new MGato();
                 case "capibara":
                     return new Mascota.Capibara();
                 default:
@@ -305,6 +305,50 @@ namespace Examen_Parcial_3
                     return new Mascotas.Mascota();
             }
         }
+
+        static void AsignarDueñoAMascota(Mascota mascota)
+        {
+            int idDueño = LeerEntero("Ingrese el Id del dueño de la mascota: ");
+            Class_Persona dueño = ObtenerPersonaPorId(idDueño);
+
+            if (dueño == null)
+            {
+                Console.WriteLine("No se encontró ninguna persona con ese Id.");
+                return;
+            }
+
+            if (dueño != null)
+            {
+                mascota.CambiarDueño(dueño);
+                dueño.AgregarMascota(mascota);
+                Console.WriteLine($"{dueño.Nombre} ahora es el dueño de {mascota.Nombre}.");
+            }
+        }
+        static Class_Persona ObtenerPersonaPorId(int idPersona)
+        {
+            return personas.FirstOrDefault(p => p.Id == idPersona);
+        }
+
+        static void BuscarMascotasPorEspecie()
+        {
+            string especie = LeerCadena("Ingrese la especie de mascotas que desea buscar: ");
+            var mascotasEncontradas = mascotas.Where(m => m.GetType().Name.ToLower() == especie.ToLower()).ToList();
+
+            if (mascotasEncontradas.Count == 0)
+            {
+                Console.WriteLine($"No se encontraron mascotas de la especie {especie}.");
+                return;
+            }
+
+            Console.WriteLine($"Mascotas de la especie {especie}:");
+            foreach (var mascota in mascotasEncontradas)
+            {
+                Console.WriteLine($"Id: {mascota.Id}, Nombre: {mascota.Nombre}");
+            }
+        }
+
+
+
 
     }
 }
