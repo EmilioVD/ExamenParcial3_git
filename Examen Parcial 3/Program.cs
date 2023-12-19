@@ -71,11 +71,63 @@ namespace Examen_Parcial_3
                     case 3:
                         return;
                     default:
-                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        Console.WriteLine("PORFAVOR SELECCIONA UNA OPCION VALIDA");
                         break;
                 }
             }
         }
+
+        static void MostrarMenuAdministracionCentro()
+        {
+            Console.WriteLine("Menú de Administración del Centro:");
+            Console.WriteLine("1 - Administración de personas");
+            Console.WriteLine("2 - Administración de mascotas");
+            Console.WriteLine("3 - Regresar a menú anterior");
+        }
+
+        static void AdministrarPersonas()
+        {
+            while (true)
+            {
+                MostrarMenuAdministracionPersonas();
+                int opcion = LeerEntero("Seleccione una opción: ");
+
+                switch (opcion)
+                {
+                    case 1:
+                        MostrarPersonasRegistradas();
+                        break;
+                    case 2:
+                        RegistrarPersonaNueva();
+                        break;
+                    case 3:
+                        BuscarPersonasPorNombre();
+                        break;
+                    case 4:
+                        ExaminarPersona();
+                        break;
+                    case 5:
+                        return;
+                    default:
+                        Console.WriteLine("PORFAVOR SELECCIONE UNA OPCION VALIDA");
+                        break;
+                }
+            }
+        }
+
+
+        static void MostrarMenuAdministracionPersonas()
+        {
+            Console.WriteLine("Menú de Administración de Personas:");
+            Console.WriteLine("1 - Mostrar todas las personas registradas");
+            Console.WriteLine("2 - Registrar persona nueva");
+            Console.WriteLine("3 - Buscar personas por nombre");
+            Console.WriteLine("4 - Examinar persona");
+            Console.WriteLine("5 - Regresar al menú anterior");
+        }
+
+
+
         static int LeerEntero(string mensaje)
         {
             Console.Write(mensaje);
@@ -87,7 +139,7 @@ namespace Examen_Parcial_3
                 }
                 else
                 {
-                    Console.Write("Por favor, ingrese un número válido: ");
+                    Console.Write("PORFAVOR INGRESA UN NUMERO VALIDO: ");
                 }
             }
         }
