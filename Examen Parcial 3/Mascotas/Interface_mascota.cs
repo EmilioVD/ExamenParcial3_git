@@ -19,7 +19,7 @@ namespace Examen_Parcial_3.Mascotas
         Perro,
         Gato,
         Capibara,
-        Pajaro
+      
     }
 
     public enum Temperamento
