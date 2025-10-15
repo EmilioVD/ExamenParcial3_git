@@ -12,12 +12,13 @@ namespace Examen_Parcial_3
     {
             static List<Class_Persona> personas = new List<Class_Persona>();
             static List<Mascota> mascotas = new List<Mascota>();
+            const string MensajeOpcionInvalida = "Opción no válida. Por favor, seleccione una opción válida.";
 
             static void Main()
             {
                 while (true)
             {
-                    const string MensajeOpcionInvalida = "Opción no válida. Por favor, seleccione una opción válida.";
+                    
 
                     MostrarMenuPrincipal();
                     int opcion = LeerEntero("Seleccione una opción: ");
@@ -254,7 +255,7 @@ namespace Examen_Parcial_3
                     case 3:
                         return;
                     default:
-                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        Console.WriteLine(MensajeOpcionInvalida);
                         break;
                 }
             }
@@ -322,7 +323,7 @@ namespace Examen_Parcial_3
                     case 3:
                         return;
                     default:
-                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        Console.WriteLine(MensajeOpcionInvalida);
                         break;
                 }
             }
@@ -389,7 +390,7 @@ namespace Examen_Parcial_3
                     case 6:
                         return;
                     default:
-                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        Console.WriteLine(MensajeOpcionInvalida);
                         break;
                 }
             }
