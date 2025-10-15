@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examen_Parcial_3.Personas
 {
-    internal interface Interface_persona
+    internal interface Interfacepersona
     {
     }
 }
