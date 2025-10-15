@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Examen_Parcial_3.Persona
 {
-    public class Class_Persona
+    public class ClassPersona
     {
         public int Id { get; private set; }
         private string _nombre;
@@ -27,7 +27,7 @@ namespace Examen_Parcial_3.Persona
 
         public List<Mascota> Mascotas { get; private set; }
 
-        public Class_Persona(string nombre)
+        public ClassPersona(string nombre)
         {
             Id = GenerarIdUnico();
             Nombre = nombre;
