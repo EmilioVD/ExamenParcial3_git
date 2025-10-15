@@ -41,8 +41,8 @@ namespace Examen_Parcial_3
                             return;
                         default:
                             default:
-    Console.WriteLine(MensajeOpcionInvalida);
-
+                            Console.WriteLine(MensajeOpcionInvalida);
+                            
                             break;
                     }
                 }
