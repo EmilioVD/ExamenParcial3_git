@@ -16,7 +16,9 @@ namespace Examen_Parcial_3
             static void Main()
             {
                 while (true)
-                {
+            {
+                    const string MensajeOpcionInvalida = "Opción no válida. Por favor, seleccione una opción válida.";
+
                     MostrarMenuPrincipal();
                     int opcion = LeerEntero("Seleccione una opción: ");
 
@@ -38,7 +40,9 @@ namespace Examen_Parcial_3
                             Console.WriteLine("Programa finalizado.");
                             return;
                         default:
-                            Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                            default:
+    Console.WriteLine(MensajeOpcionInvalida);
+
                             break;
                     }
                 }
